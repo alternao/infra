@@ -1,0 +1,2 @@
+# infra
+My NixOS configuration
