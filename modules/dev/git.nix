@@ -18,7 +18,7 @@ top: {
             signing = {
               signByDefault = true;
               format = "openpgp";
-              key = userInfo.key;
+              inherit (userInfo) key;
             };
             
             ignores = [
