@@ -1,25 +1,31 @@
 top: {
   flake.modules = {
     homeManager.dev =
-      hm:
+      { config, ... }:
       let
-        userInfo = top.config.flake.meta.users.${hm.config.home.username};
+        userInfo = top.config.flake.meta.users.${config.home.username};
       in
-      {
-        programs.git = {
-          enable = true;
-          settings = {
-	    user = {
-	      name = userInfo.name;
-	      email = userInfo.email;
-	    };
-	  };
+        {
+          programs.git = {
+            enable = true;
+            settings = {
+	            user = {
+	              name = userInfo.name;
+	              email = userInfo.email;
+	            };
+	          };
 
-          ignores = [
-            ".direnv/"
-            "result"
-          ];
+            signing = {
+              signByDefault = true;
+              format = "openpgp";
+              key = userInfo.key;
+            };
+            
+            ignores = [
+              ".direnv/"
+              "result"
+            ];
+          };
         };
-      };
   };
 }

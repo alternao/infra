@@ -17,14 +17,14 @@ top:
       };
 
       services.gpg-agent = {
-       enable = true;
-       enableSshSupport = true;
-       defaultCacheTtlSsh = 600; # ssh key cache would be expired after 10 minutes
-       maxCacheTtlSsh = 1800;
-
-       enableExtraSocket = true;
-
-       pinentry.package = pkgs.pinentry-all;
+        enable = true;
+        enableSshSupport = true;
+        defaultCacheTtlSsh = 600; # ssh key cache would be expired after 10 minutes
+        maxCacheTtlSsh = 1800;
+        
+        enableExtraSocket = true;
+        
+        pinentry.package = pkgs.pinentry-all;
       };
     };
 }

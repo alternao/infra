@@ -1,4 +1,3 @@
-
 {
   config,
   ...
@@ -10,22 +9,17 @@
         email = "naogami@proton.me";
         name = "Nao Gami";
         username = "naogami";
-
-	keygrips = {
-	  auth = "0F5FE99277DC4BC5F17D32FDB3000D12FCEFBBB2";
-	  encode = "700A8188D87F345FAFBDE21ED64C9C4359B82A39";
-          sign = "7BB942F7F712DDAFE6576E8DD30D95A8D17573AD";
-        };
+        key = "104D504CF3E411F5CD1CBF88A3B4BE5E7F072D30";
       };
     };
 
     modules.nixos.naogami =
       { pkgs, ... }:
       {
-	# Don't enable fish option here.
-	# If make it enable, home-manager can't set session variables.
-	# programs.fish.enable = true;
-
+	      # Don't enable fish option here.
+	      # If it was enabled, home-manager would fail to set session variables.
+	      # programs.fish.enable = true;
+        
         users.users.naogami = {
           description = config.flake.meta.users.naogami.name;
           isNormalUser = true;
@@ -35,10 +29,10 @@
             "wheel"
           ];
           shell = pkgs.fish;
-	  ignoreShellProgramCheck = true;
+	        ignoreShellProgramCheck = true;
           initialPassword = "id";
         };
-
+        
         nix.settings.trusted-users = [ config.flake.meta.users.naogami.username ];
       };
   };
