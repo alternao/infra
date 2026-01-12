@@ -9,6 +9,7 @@
       with config.flake.modules.nixos;
       [
         base
+        desktop
         openssh
 
         # Users
@@ -23,9 +24,10 @@
             with config.flake.modules.homeManager;
             [
               base
-	      dev
-	      gpg
-	      neovim
+              desktop
+              dev
+              gpg
+              neovim
               shell
             ];
         }
