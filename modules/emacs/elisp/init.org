@@ -1,6 +1,6 @@
 #+TITLE: Configurations for GNU Emacs
-#+AUTHOR: Naoyuki Ikegami
-#+EMAIL: nykkgm@pm.me
+#+AUTHOR: Nao Gami
+#+EMAIL: naogami@proton.me
 #+STARTUP: content
 #+STARTUP: fold
 
@@ -11,8 +11,8 @@
 * Booting
 ** Setup user information
 #+begin_src emacs-lisp :tangle yes
-  (setq user-full-name "nykkgm")
-  (setq user-mail-address "nykkgm@pm.me")
+  (setq user-full-name "Nao Gami")
+  (setq user-mail-address "naogami@proton.me")
 #+end_src
 ** Temporally disable magic file name
 #+begin_src emacs-lisp :tangle yes

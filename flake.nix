@@ -20,6 +20,12 @@
       url = "github:miikanissi/modus-themes.nvim";
       flake = false;
     };
+
+    org-babel.url = "github:emacs-twist/org-babel";
+
+    nix-qml-support = {
+      url = "github:outfoxxed/nix-qml-support";
+    };
   };
 
   outputs =
