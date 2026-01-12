@@ -1,0 +1,81 @@
+#+TITLE: Configurations for GNU Emacs
+#+AUTHOR: Nao Gami
+#+EMAIL: naogami@proton.me
+#+STARTUP: content
+#+STARTUP: fold
+
+* The early initialization of Emacs in early-init.el
+** Header
+#+begin_src emacs-lisp :tangle yes
+  ;; early-init.el -*- lexical-binding: t -*-
+#+end_src
+** Setting basic frame properties
+#+begin_src emacs-lisp :tangle yes
+  (setq frame-resize-pixelwise t
+	frame-inhibit-implied-resize t
+	frame-title-format '("%b")
+	ring-bell-function 'ignore
+	use-dialog-box nil
+	use-file-dialog nil
+	use-short-answers t
+	inhibit-splash-screen t
+	inhibit-startup-screen t
+	inhibit-startup-echo-area-message user-login-name
+	inhibit-startup-buffer-menu t)
+#+end_src
+** Inhibit menubar, toolbar and scrollbar
+#+begin_src emacs-lisp :tangle yes
+(menu-bar-mode -1)
+(tool-bar-mode -1)
+(scroll-bar-mode -1)
+#+end_src
+** Inhibit automatic file generation
+#+begin_src emacs-lisp :tangle yes
+  (setq make-backup-files nil)
+  (setq auto-save-default nil)
+  (setq auto-save-list-file-prefix nil)
+  (setq create-lockfiles nil)
+#+end_src
+** Increase garbage collection threshold 
+#+begin_src emacs-lisp :tangle yes
+  (setq gc-cons-threshold (* 10 128 1024 1024))
+  (setq garbage-collection-messages nil)
+#+end_src
+** Increase size of the pipe size (for reading data from the language server)
+#+begin_src emacs-lisp :tangle yes
+  (setq read-process-output-max (* 8 1024 1024))
+#+end_src
+** Inhibit beep sound
+#+begin_src emacs-lisp :tangle yes
+  (setq ring-bell-function 'ignore)
+#+end_src
+** Change default directory to user home
+#+begin_src emacs-lisp :tangle yes
+  (setq default-directory "~/")
+  (setq command-line-default-directory "~/")
+#+end_src
+** Clean scratch buffer
+#+begin_src emacs-lisp :tangle yes
+  (setq initial-scratch-message nil)
+  (setq initial-major-mode 'fundamental-mode)
+#+end_src
+** Ignore x session resources
+#+begin_src emacs-lisp :tangle yes
+  (advice-add 'x-apply-session-resources :override 'ignore)
+#+end_src
+** Inhibit compacting font caches
+#+begin_src emacs-lisp :tangle yes
+  (setq inhibit-compacting-font-caches t)
+#+end_src
+** Delete duplications in history
+#+begin_src emacs-lisp :tangle yes
+  (setq history-delete-duplicates t)
+#+end_src
+** Follow symlinks in VC
+#+begin_src emacs-lisp :tangle yes
+  (setq vc-follow-symlinks t)
+#+end_src
+** Inhibit warnigns for package cl
+#+begin_src emacs-lisp :tangle yes
+  (setq byte-compile-warnings '(cl-functions))
+#+end_src

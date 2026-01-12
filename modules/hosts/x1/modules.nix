@@ -26,6 +26,7 @@
               base
               desktop
               dev
+              emacs
               gpg
               neovim
               shell
