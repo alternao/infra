@@ -1,8 +1,12 @@
+{ inputs, ...}:
 {
   flake.modules.homeManager.desktop = {
     programs.alacritty = {
       enable = true;
       settings = {
+        general.import = [
+          (inputs.modus-themes.outPath + "/extras/alacritty/modus_vivendi_tinted.toml")
+        ];
         window = {
           decorations = "Full";
           dynamic_title = true;
@@ -15,7 +19,7 @@
             family = "PlemolJP Console NF";
             style = "Regular";
           };
-          size = 13;
+          size = 14;
         };
         cursor = {
           style = {

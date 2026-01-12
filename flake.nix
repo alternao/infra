@@ -15,6 +15,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    modus-themes = {
+      url = "github:miikanissi/modus-themes.nvim";
+      flake = false;
+    };
   };
 
   outputs =
